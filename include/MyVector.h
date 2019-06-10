@@ -209,12 +209,12 @@ void MyVector<T>::emplace_back(Args&& ...args) {
     m_size++;
 }
 
-template<class T>
+template <typename T>
 void MyVector<T>::pop_back() {
     m_size--;
 }
 
-template<class T>
+template <typename T>
 typename MyVector<T>::iterator MyVector<T>::erase(MyVector::iterator pos) {
     if(m_capacity == 0) {
         return m_arr;
@@ -226,7 +226,7 @@ typename MyVector<T>::iterator MyVector<T>::erase(MyVector::iterator pos) {
     return pos;
 }
 
-template<class T>
+template <typename T>
 typename MyVector<T>::iterator MyVector<T>::erase(MyVector::iterator first, MyVector::iterator last) {
     if(m_capacity == 0) {
         return m_arr;
@@ -287,7 +287,7 @@ T& MyVector<T>::at(int index) const {
     }
 }
 
-template<class T>
+template <typename T>
 void MyVector<T>::clear() {
     m_size = 0;
 }
@@ -297,7 +297,7 @@ void MyVector<T>::shrink_to_fit() {
     m_capacity = m_size;
 }
 
-template<class T>
+template <typename T>
 void MyVector<T>::swap(MyVector<T>& other) {
     std::swap(m_arr,other.m_arr);
     std::swap(m_size,other.m_size);
