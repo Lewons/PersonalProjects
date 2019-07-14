@@ -20,6 +20,7 @@ public:
     MyVector(iterator first, iterator last); //copy elements within range into new vector
     MyVector(const MyVector& other); //copy constructor
     MyVector(MyVector&& other) noexcept ; //move constructor
+    MyVector(std::initializer_list<T> init); //initializer list
     ~MyVector(); //destructor
 
     MyVector& operator= (const MyVector& other); //copy assignment operator
@@ -122,6 +123,13 @@ MyVector<T>::MyVector(MyVector<T>&& other) noexcept
         , m_arr(other.m_arr)
 {
     other.m_arr = nullptr;
+}
+
+template <typename T>
+MyVector<T>::MyVector(std::initializer_list<T> init) {
+    for(const T& element : init) {
+        push_back(element);
+    }
 }
 
 template <typename T>
